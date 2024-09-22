@@ -144,7 +144,7 @@ def handle_server(server_reader, server_writer):
                 content = get_yso_content(yso_type,yso_command)
                 ColumnDefinitionList((ColumnDefinition('a'),ColumnDefinition('b'),ColumnDefinition('c'))).write(server_writer)
                 EOF(capability, handshake.status).write(server_writer)
-                ResultSet(("11",content,"2333")).write(server_writer)
+                ResultSet(("11",content,content)).write(server_writer)
                 result = EOF(capability, handshake.status)
             elif query.decode('ascii') == 'select 1':
                 ColumnDefinitionList((ColumnDefinition('database'),)).write(server_writer)
